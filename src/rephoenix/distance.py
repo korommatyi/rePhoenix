@@ -3,9 +3,9 @@ __author__ = 'korommatyi'
 import difflib
 
 
-def distance(o1, o2):
+def similarity(o1, o2):
     sm = difflib.SequenceMatcher(a=o1, b=o2)
-    return 1 - sm.ratio()
+    return sm.ratio()
     # d = 0
     # for t in sm.get_opcodes():
     #     operation = t[0]

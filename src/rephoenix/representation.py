@@ -4,6 +4,8 @@ from collections import namedtuple
 
 import justext
 
+from rephoenix.distance import similarity
+
 
 PageElement = namedtuple("PageElement", ["path", "is_content"])
 
@@ -16,9 +18,12 @@ def flat_list_representation(html_content, language="Hungarian"):
 def demo():
     import sys
 
-    content = open(sys.argv[1]).read()
-    for e in flat_list_representation(content):
-        print(e)
+    content1 = open(sys.argv[1]).read()
+    content2 = open(sys.argv[2]).read()
+    repr1 = flat_list_representation(content1)
+    repr2 = flat_list_representation(content2)
+    print(similarity(repr1, repr2))
+
 
 
 if __name__ == "__main__":
